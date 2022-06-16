@@ -20,7 +20,7 @@ class ProjectHoursTile extends StatelessWidget {
               style: AppTheme.theme.textTheme.bodyLarge,
             ),
             const SizedBox(height: 25),
-            LeavesRowBuilder(label: 'Stunden', valueString: '100/250'),
+            MainPageItemRowBuilder(label: 'Stunden', valueString: '100 / 250'),
             const SizedBox(height: 50),
           ],
         ),

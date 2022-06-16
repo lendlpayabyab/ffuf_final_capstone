@@ -32,22 +32,22 @@ class LeavesOverview extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: _kSpacerHeight),
-                LeavesRowBuilder(
+                MainPageItemRowBuilder(
                   label: 'Jahresurlaub',
                   value: 25,
                 ),
                 const SizedBox(height: _kSpacerHeight),
-                LeavesRowBuilder(
+                MainPageItemRowBuilder(
                   label: 'Resturlaub EPOS',
                   value: 10,
                 ),
                 const SizedBox(height: _kSpacerHeight),
-                LeavesRowBuilder(
+                MainPageItemRowBuilder(
                   label: 'Beantragt',
                   value: 8,
                 ),
                 const SizedBox(height: _kSpacerHeight),
-                LeavesRowBuilder(
+                MainPageItemRowBuilder(
                   label: 'Übertrag Vorjahr',
                   value: 1,
                 ),

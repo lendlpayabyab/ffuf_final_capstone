@@ -2,8 +2,8 @@ import 'package:ffuf_final_capstone/utilities/_export.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class LeavesRowBuilder extends StatelessWidget {
-  const LeavesRowBuilder({
+class MainPageItemRowBuilder extends StatelessWidget {
+  const MainPageItemRowBuilder({
     required this.label,
     Key? key,
     this.value,

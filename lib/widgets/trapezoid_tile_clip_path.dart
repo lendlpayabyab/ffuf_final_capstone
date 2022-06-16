@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SupervisorTileClipPath extends CustomClipper<Path> {
+class TrapezoidTileClipPath extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     final path = Path()

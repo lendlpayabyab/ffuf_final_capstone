@@ -9,7 +9,9 @@ class HomePageFactory extends VmFactory<AppState, HomePageConnector> {
 
   @override
   Vm? fromStore() {
-    return HomePageViewModel(unionPageState: _getLoadingState());
+    return HomePageViewModel(
+      unionPageState: _getLoadingState(),
+    );
   }
 
   UnionPageState<User> _getLoadingState() {

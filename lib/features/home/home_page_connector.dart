@@ -18,7 +18,9 @@ class HomePageConnector extends StatelessWidget {
         await store.dispatch(ActionLogInUser());
         await store.dispatch(ActionFetchUsers());
       },
-      builder: (context, vm) => HomePage(unionPageState: vm.unionPageState),
+      builder: (context, vm) => HomePage(
+        unionPageState: vm.unionPageState,
+      ),
     );
   }
 }

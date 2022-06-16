@@ -22,7 +22,7 @@ class SickLeaveTile extends StatelessWidget {
               style: AppTheme.theme.textTheme.bodyLarge,
             ),
             const SizedBox(height: 25),
-            LeavesRowBuilder(label: 'Insgesamt', value: 3),
+            MainPageItemRowBuilder(label: 'Insgesamt', value: 3),
             const SizedBox(height: 16),
             Row(
               children: [

@@ -1,6 +1,6 @@
-import 'package:ffuf_final_capstone/features/my_account/widgets/supervisor_tile_clip_path.dart';
 import 'package:ffuf_final_capstone/models/user/_export.dart';
 import 'package:ffuf_final_capstone/utilities/_export.dart';
+import 'package:ffuf_final_capstone/widgets/_export.dart';
 import 'package:flutter/material.dart';
 
 class SupervisorCardBuilder extends StatelessWidget {
@@ -19,8 +19,14 @@ class SupervisorCardBuilder extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CircleAvatar(
-          backgroundImage: AssetImage(user.profileImageUrl),
+          backgroundImage: const AssetImage('assets/backgrounds/loading.gif'),
+          backgroundColor: Colors.transparent,
           radius: contextSafeWidth * .085,
+          child: CircleAvatar(
+            backgroundImage: NetworkImage(user.profileImageUrl),
+            backgroundColor: Colors.transparent,
+            radius: contextSafeWidth * .085,
+          ),
         ),
         const SizedBox(width: 16),
         Column(
@@ -30,22 +36,7 @@ class SupervisorCardBuilder extends StatelessWidget {
             Text('${user.firstName} ${user.lastName}', style: AppTheme.theme.textTheme.labelLarge),
             Text(user.email, style: AppTheme.theme.textTheme.labelSmall),
             const SizedBox(height: 12),
-            ClipPath(
-              clipper: SupervisorTileClipPath(),
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: AppTheme.mainContentColor,
-                  border: Border(
-                    left: BorderSide(
-                      color: AppTheme.selectionIndicatorColor,
-                      width: 3,
-                    ),
-                  ),
-                ),
-                padding: const EdgeInsets.fromLTRB(7, 4, 20, 4),
-                child: Text('0160 - 123456789', style: AppTheme.theme.textTheme.labelSmall?.copyWith(color: AppTheme.textOnCardColor),),
-              ),
-            )
+            const TrapezoidTileBuilder(label: '0160 - 123456789',),
           ],
         ),
       ],

@@ -18,8 +18,14 @@ class ProfileCardBuilder extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CircleAvatar(
-          backgroundImage: AssetImage(user.profileImageUrl),
+          backgroundImage: const AssetImage('assets/backgrounds/loading.gif'),
+          backgroundColor: Colors.transparent,
           radius: contextSafeWidth * .085,
+          child: CircleAvatar(
+            backgroundImage: NetworkImage(user.profileImageUrl),
+            backgroundColor: Colors.transparent,
+            radius: contextSafeWidth * .085,
+          ),
         ),
         const SizedBox(width: 16),
         Column(

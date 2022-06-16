@@ -3,19 +3,21 @@ import 'package:ffuf_final_capstone/features/login/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class AppDrawer extends StatefulWidget {
-  const AppDrawer({
+class AppDrawerPage extends StatefulWidget {
+  const AppDrawerPage({
     required this.onSelectTab,
+    required this.onLogOut,
     Key? key,
   }) : super(key: key);
 
   final Function(int) onSelectTab;
+  final VoidCallback onLogOut;
 
   @override
-  State<AppDrawer> createState() => _AppDrawerState();
+  State<AppDrawerPage> createState() => _AppDrawerPageState();
 }
 
-class _AppDrawerState extends State<AppDrawer> {
+class _AppDrawerPageState extends State<AppDrawerPage> {
   List<bool> isSelected = [true, false];
 
   static int selectedTabIndex = 0;
@@ -50,7 +52,7 @@ class _AppDrawerState extends State<AppDrawer> {
             DrawerTile(
               isSelected: selectedTabIndex == 0 && true,
               label: 'Mein Konto',
-              logoUrl: 'assets/icons/user_black.svg',
+              logoUrl: 'assets/icons/user_grey.svg',
               onTap: () {
                 setState(() {
                   selectedTabIndex = 0;
@@ -97,7 +99,15 @@ class _AppDrawerState extends State<AppDrawer> {
                     content: Text('Möchten Sie sich abmelden?'),
                     actions: [
                       TextButton(
-                        onPressed: () => Navigator.pushReplacementNamed(context, LoginPage.routeName),
+                        onPressed: () {
+                          setState(() {
+                            selectedTabIndex = 0;
+                          });
+                          widget.onSelectTab(0);
+                          widget.onLogOut();
+                          Navigator.of(context).pop();
+                          Navigator.of(context).pushReplacementNamed(LoginPage.routeName);
+                        },
                         child: const Text('Ja'),
                       ),
                       TextButton(
